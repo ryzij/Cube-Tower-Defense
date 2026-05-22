@@ -56,6 +56,8 @@ MonoBehaviour:
   _sellingMultiplier: 0.5
   _upgrades:
   - {fileID: 11400000, guid: 68a1d6af410516a45b1a068a14506079, type: 2}
+  - {fileID: 11400000, guid: 796a3264078b8e844b8bae5672ed08ae, type: 2}
+  - {fileID: 11400000, guid: cc5e39ac57e1c14429e9292b640829e6, type: 2}
 --- !u!114 &4447708407417138733
 MonoBehaviour:
   m_ObjectHideFlags: 0
