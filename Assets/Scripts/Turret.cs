@@ -18,6 +18,10 @@ public class Turret : MonoBehaviour
     private float _reloadTimer;
     private int _lvl;
 
+    private float _baseReloadTime;
+    private float _baseDamage;
+    private float _baseDistance;
+
     public int Price => _price;
     public float Damage => _damage;
     public float Distance => _distance;
@@ -40,6 +44,10 @@ public class Turret : MonoBehaviour
     {
         if (_bulletSpawnPoint == null)
             _bulletSpawnPoint = transform;
+
+        _baseReloadTime = _reloadTime;
+        _baseDamage = _damage;
+        _baseDistance = _distance;
     }
 
     public void Upgrade()
@@ -54,21 +62,21 @@ public class Turret : MonoBehaviour
         if (upgrade.UpgradeDistanceMultiplier != -1)
         {
             if (_damage == 0)
-                _damage = upgrade.UpgradeDamageMultiplier;
+                _baseDamage = _damage = upgrade.UpgradeDamageMultiplier;
             else
-                _damage *= upgrade.UpgradeDamageMultiplier;
+                _damage = _baseDamage * upgrade.UpgradeDamageMultiplier;
         }
 
         if (upgrade.UpgradeDistanceMultiplier != -1)
         {
             if (_distance == 0)
-                _distance = upgrade.UpgradeDistanceMultiplier;
+                _baseDistance = _distance = upgrade.UpgradeDistanceMultiplier;
             else
-                _distance *= upgrade.UpgradeDistanceMultiplier;
+                _distance = _baseDistance * upgrade.UpgradeDistanceMultiplier;
         }
 
         if (upgrade.UpgradeReloadTimeMultiplier != -1)
-            _reloadTime *= upgrade.UpgradeReloadTimeMultiplier;
+            _reloadTime = _baseReloadTime * upgrade.UpgradeReloadTimeMultiplier;
     }
 
     private void Update()
