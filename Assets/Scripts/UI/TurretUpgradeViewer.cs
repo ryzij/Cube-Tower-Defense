@@ -10,6 +10,7 @@ public class TurretUpgradeViewer : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI _upgradeCostText;
 
     private int _upgradeCost;
+    private bool _isMaxLevel;
 
     private void OnEnable()
     {
@@ -27,7 +28,7 @@ public class TurretUpgradeViewer : MonoBehaviour
 
     private void OnMoneyChanged(int newMoney)
     {
-        _upgradeButton.interactable = newMoney >= _upgradeCost;
+        _upgradeButton.interactable = newMoney >= _upgradeCost && !_isMaxLevel;
     }
 
     private void OnTurretClicked(Turret turret)
@@ -44,8 +45,16 @@ public class TurretUpgradeViewer : MonoBehaviour
 
     private void UpdateBtn(Turret turret)
     {
+        _isMaxLevel = turret.IsMaxLevel;
+        if (_isMaxLevel)
+        {
+            _upgradeCostText.text = "MAX";
+            _upgradeButton.interactable = false;
+            return;
+        }
+        
         _upgradeCost = turret.UpgradeCost;
         _upgradeCostText.text = _upgradeCost.ToString();
-        _upgradeButton.interactable = _wallet.Money >= _upgradeCost && !turret.IsMaxLevel;
+        _upgradeButton.interactable = _wallet.Money >= _upgradeCost;
     }
 }

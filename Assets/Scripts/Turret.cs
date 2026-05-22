@@ -12,8 +12,6 @@ public class Turret : MonoBehaviour
     [Header("Economy")]
     [SerializeField] private int _price;
     [SerializeField] private float _sellingMultiplier = 0.5f;
-    [SerializeField] private float _upgradeCostMultiplier = 0.2f;
-    [SerializeField] private float _upgradeCostMultiplierIncrement = 0.1f;
     [Header("Upgrade")]
     [SerializeField] TurretUpgrade[] _upgrades;
 
@@ -24,8 +22,19 @@ public class Turret : MonoBehaviour
     public float Damage => _damage;
     public float Distance => _distance;
     public int SellPrice => Mathf.RoundToInt(_price * _sellingMultiplier);
-    public int UpgradeCost => Mathf.RoundToInt(_price * _upgradeCostMultiplier);
-    public bool IsMaxLevel => _lvl >= _upgrades.Length - 1;
+    public int UpgradeCost
+    {
+        get
+        {
+            if (IsMaxLevel)
+                return 0;
+
+            return Mathf.RoundToInt(_price * _upgrades[_lvl].UpgradeConstMultiplier);
+        }
+    }
+    public bool IsMaxLevel => _lvl >= _upgrades.Length;
+    public int Level => _lvl + 1;
+    public int MaxLevel => _upgrades.Length;
 
     private void Start()
     {
@@ -39,11 +48,27 @@ public class Turret : MonoBehaviour
             return;
 
         var upgrade = _upgrades[_lvl++];
-        // TODO: исправить умножение на 0
-        _damage *= upgrade.UpgradeDamageMultiplier;
-        _distance *= upgrade.UpgradeDistanceMultiplier;
-        _reloadTime *= upgrade.UpgradeReloadTimeMultiplier;
-        _upgradeCostMultiplier += _upgradeCostMultiplierIncrement;
+        if (upgrade.BulletPrefab != null)
+            _bulletPrefab = upgrade.BulletPrefab;
+
+        if (upgrade.UpgradeDistanceMultiplier != -1)
+        {
+            if (_damage == 0)
+                _damage = upgrade.UpgradeDamageMultiplier;
+            else
+                _damage *= upgrade.UpgradeDamageMultiplier;
+        }
+
+        if (upgrade.UpgradeDistanceMultiplier != -1)
+        {
+            if (_distance == 0)
+                _distance = upgrade.UpgradeDistanceMultiplier;
+            else
+                _distance *= upgrade.UpgradeDistanceMultiplier;
+        }
+
+        if (upgrade.UpgradeReloadTimeMultiplier != -1)
+            _reloadTime *= upgrade.UpgradeReloadTimeMultiplier;
     }
 
     private void Update()

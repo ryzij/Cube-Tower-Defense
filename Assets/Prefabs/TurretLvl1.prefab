@@ -53,6 +53,9 @@ MonoBehaviour:
   _damage: 0
   _distance: 0
   _price: 100
+  _sellingMultiplier: 0.5
+  _upgrades:
+  - {fileID: 11400000, guid: 68a1d6af410516a45b1a068a14506079, type: 2}
 --- !u!114 &4447708407417138733
 MonoBehaviour:
   m_ObjectHideFlags: 0
