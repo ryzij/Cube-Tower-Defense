@@ -22,10 +22,12 @@ public class Turret : MonoBehaviour
     private float _baseDamage;
     private float _baseDistance;
 
+    private float _currentPrice;
+
     public int Price => _price;
     public float Damage => _damage;
     public float Distance => _distance;
-    public int SellPrice => Mathf.RoundToInt(_price * _sellingMultiplier);
+    public int SellPrice => Mathf.RoundToInt(_currentPrice * _sellingMultiplier);
     public int UpgradeCost
     {
         get
@@ -48,6 +50,7 @@ public class Turret : MonoBehaviour
         _baseReloadTime = _reloadTime;
         _baseDamage = _damage;
         _baseDistance = _distance;
+        _currentPrice = _price;
     }
 
     public void Upgrade()
@@ -77,6 +80,8 @@ public class Turret : MonoBehaviour
 
         if (upgrade.UpgradeReloadTimeMultiplier != -1)
             _reloadTime = _baseReloadTime * upgrade.UpgradeReloadTimeMultiplier;
+
+        _currentPrice += _price * 0.25f;
     }
 
     private void Update()
