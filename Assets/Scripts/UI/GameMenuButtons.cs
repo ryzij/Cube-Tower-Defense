@@ -44,6 +44,6 @@ public class GameMenuButtons : MonoBehaviour
         _gameManager.CurrentState = GameManager.GameState.BuildingPath;
     }
 
-    private void ExitToMainMenu() =>
+    public void ExitToMainMenu() =>
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
 }
