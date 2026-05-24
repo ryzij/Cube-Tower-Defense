@@ -3085,7 +3085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &359661413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3772,7 +3772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &473347664
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7870,7 +7870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c1bdc2782c2a7b2a0a156402dbc325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Wallet
-  _money: 300
+  _money: 500
   _onMoneyChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -13512,6 +13512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _levels:
   - {fileID: 11400000, guid: db2c2aace91545d4d9deea106eef0f8b, type: 2}
+  - {fileID: 11400000, guid: 16db44f3b18ae8344877ec2245286b7d, type: 2}
   _pathBuildService: {fileID: 305503}
   _onStateChanged:
     m_PersistentCalls:
