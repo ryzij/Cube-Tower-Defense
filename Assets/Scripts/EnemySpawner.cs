@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
         _gameManager.OnLevelChanged -= OnLevelChanged;
     }
 
-    private void OnLevelChanged(Level level) => StartCoroutine(SpawnCoroutine(level));
+    private void OnLevelChanged(GameManager.OnLevelChangedEventArgs args) => StartCoroutine(SpawnCoroutine(args.Level));
 
     private IEnumerator SpawnCoroutine(Level level)
     {

@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Level[] _levels;
     [SerializeField] private SandPathBuildService _pathBuildService;
     [SerializeField] private UnityEvent<GameState> _onStateChanged;
-    [SerializeField] private UnityEvent<Level> _onLevelChanged;
+    [SerializeField] private UnityEvent<OnLevelChangedEventArgs> _onLevelChanged;
 
     public event UnityAction<GameState> OnStateChanged
     {
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         remove => _onStateChanged.RemoveListener(value);
     }
 
-    public event UnityAction<Level> OnLevelChanged
+    public event UnityAction<OnLevelChangedEventArgs> OnLevelChanged
     {
         add => _onLevelChanged.AddListener(value);
         remove => _onLevelChanged.RemoveListener(value);
@@ -41,7 +41,8 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    //public Level CurrentLevel => _levels[_currentLvlIndex];
+    public int CurrentLevel => _currentLvlIndex + 1;
+    public int TotalLevels => _levels.Length;
 
     private void OnEnable()
     {
@@ -61,6 +62,19 @@ public class GameManager : MonoBehaviour
     {
         _currentLvlIndex = (_currentLvlIndex + 1) % _levels.Length;
         CurrentState = GameState.Level;
-        _onLevelChanged?.Invoke(_levels[_currentLvlIndex]);
+        _onLevelChanged?.Invoke(new OnLevelChangedEventArgs
+        {
+            Level = _levels[_currentLvlIndex],
+            CurrentLevel = CurrentLevel,
+            TotalLevels = TotalLevels
+        });
+    }
+
+    public class OnLevelChangedEventArgs
+    {
+        public Level Level { get; set; }
+        public int CurrentLevel { get; set; }
+        public int TotalLevels { get; set; }
+        public bool IsLastLevel => CurrentLevel == TotalLevels;
     }
 }
