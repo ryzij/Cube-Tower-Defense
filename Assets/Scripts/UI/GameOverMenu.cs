@@ -3,17 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
-    [SerializeField] private Tower _tower;
+    [SerializeField] private WinLoseController _winLoseController;
     [SerializeField] private Transform _menuPanel;
 
     private void OnEnable()
     {
-        _tower.OnGameOver += OnGameOver;
+        _winLoseController.OnGameOver += OnGameOver;
     }
 
     private void OnDisable()
     {
-        _tower.OnGameOver -= OnGameOver;
+        _winLoseController.OnGameOver -= OnGameOver;
     }
 
     public void RestartGame()
@@ -28,7 +28,7 @@ public class GameOverMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    private void OnGameOver()
+    private void OnGameOver(WinLoseController.OnGameOverEventArgs args)
     {
         Time.timeScale = 0f;
         _menuPanel.gameObject.SetActive(true);
