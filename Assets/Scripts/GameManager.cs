@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     }
     
     [SerializeField] private Level[] _levels;
-    [SerializeField] private SandPathBuildService _pathBuildService;
     [SerializeField] private UnityEvent<GameState> _onStateChanged;
     [SerializeField] private UnityEvent<OnLevelChangedEventArgs> _onLevelChanged;
 
@@ -43,20 +42,6 @@ public class GameManager : MonoBehaviour
     
     public int CurrentLevel => _currentLvlIndex + 1;
     public int TotalLevels => _levels.Length;
-
-    private void OnEnable()
-    {
-        _pathBuildService.OnBuildComplete += OnBuildComplete;
-    }
-    private void OnDisable()
-    {
-        _pathBuildService.OnBuildComplete -= OnBuildComplete;
-    }
-
-    private void OnBuildComplete()
-    {
-        CurrentState = GameState.BuildingTurrets;
-    }
 
     public void NextLevel()
     {

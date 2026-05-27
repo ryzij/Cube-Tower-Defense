@@ -56,7 +56,6 @@ public class SandPathBuildService : MonoBehaviour
 
     public void ResetPath()
     {
-        // TODO: исправить удаление блоков финала пути
         for (int i = _predefinedBlocks.Length; i < _blocksInPath.Count; i++)
         {
             var block = _blocksInPath[i];
@@ -85,6 +84,7 @@ public class SandPathBuildService : MonoBehaviour
             _currentBlock = _pathEnd;
             _blocksInPath.Add(_currentBlock);
             _onBuildComplete?.Invoke();
+            _gameManager.CurrentState = GameManager.GameState.BuildingTurrets;
         }
 
         DestroyBlock(block);
