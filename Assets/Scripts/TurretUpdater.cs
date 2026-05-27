@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class TurretUpdater : MonoBehaviour
 {
     [SerializeField] private BlockDetector _blockDetector;
-    [SerializeField] private TurretsShop _shop;
     [SerializeField] private Wallet _wallet;
     [SerializeField] private Button _sellButton;
     [SerializeField] private Button _upgradeButton;
@@ -40,15 +39,11 @@ public class TurretUpdater : MonoBehaviour
     private void OnEnable()
     {
         _blockDetector.OnBlockClicked += OnBlockClicked;
-        _shop.OnDestroyTurretSelected += OnDestoyTurretSelected;
-        _shop.OnDestroyTurretDeselected += OnDestroyTurretDeselected;
     }
 
     private void OnDisable()
     {
         _blockDetector.OnBlockClicked -= OnBlockClicked;
-        _shop.OnDestroyTurretSelected -= OnDestoyTurretSelected;
-        _shop.OnDestroyTurretDeselected -= OnDestroyTurretDeselected;
     }
 
     private void Start()
@@ -67,18 +62,6 @@ public class TurretUpdater : MonoBehaviour
 
         if (block.Type == BlockScript.BlockType.Turret)
             ClickedTurret = block.GetComponent<Turret>();
-    }
-
-    private void OnDestoyTurretSelected()
-    {
-        _isDestroyingTurret = true;
-        ClickedTurret = null;
-    }
-
-    private void OnDestroyTurretDeselected()
-    {
-        _isDestroyingTurret = false;
-        ClickedTurret = null;
     }
 
     private void UpgradeTurret()

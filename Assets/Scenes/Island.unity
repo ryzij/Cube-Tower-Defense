@@ -4940,7 +4940,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Debugger
   _gameManager: {fileID: 1875710079}
   _sandPathBuildService: {fileID: 305503}
-  _turretShop: {fileID: 1311268619}
   _spawnDeathControl: {fileID: 694046010}
   _tower: {fileID: 1739395621}
 --- !u!1 &645921916
@@ -10458,19 +10457,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5980606f117d314418be8bbb5abf9a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurretsShop
+  _gameManager: {fileID: 1875710079}
   _wallet: {fileID: 1030979928}
   _blockDetector: {fileID: 709556715}
   _turretsHolder: {fileID: 23034195}
   _deselectAction:
     m_Name: Deselect
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 04bf8539-31c8-4175-8ec1-628bffc18cc4
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b141255a-455e-4cce-a6f5-0a47c89a1df0
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 7a182793-f5b0-43b1-91fb-b857f239aa7d
+      m_Id: b9246c48-ca02-4ef2-8291-12a4f941543b
       m_Path: <Keyboard>/escape
       m_Interactions: 
       m_Processors: 
@@ -10478,7 +10478,7 @@ MonoBehaviour:
       m_Action: Deselect
       m_Flags: 0
     - m_Name: 
-      m_Id: deb5c6fa-481c-4811-a3ae-403ba593dfe2
+      m_Id: f857fada-95e0-4cdd-ab6c-2c18f4cf9d72
       m_Path: <Keyboard>/space
       m_Interactions: 
       m_Processors: 
@@ -10489,16 +10489,10 @@ MonoBehaviour:
   _turretShopItems:
   - _turretPrefab: {fileID: 1128128508282001352, guid: 7f26b5a7dee15d04ba8f57d552771424, type: 3}
     _icon: {fileID: 21300000, guid: 6dfa29c1d95915449b61fa6c240fb394, type: 3}
-  _onTurretSelected:
+  _onBlockSelected:
     m_PersistentCalls:
       m_Calls: []
-  _onTurretDeselected:
-    m_PersistentCalls:
-      m_Calls: []
-  _onDestroyTurretSelected:
-    m_PersistentCalls:
-      m_Calls: []
-  _onDestroyTurretDeselected:
+  _onBlockDeselected:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1311268620
@@ -10514,7 +10508,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurretUpdater
   _blockDetector: {fileID: 709556715}
-  _shop: {fileID: 1311268619}
   _wallet: {fileID: 1030979928}
   _sellButton: {fileID: 448804123}
   _upgradeButton: {fileID: 1047497976}
@@ -13700,7 +13693,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TurretsShopViewer
   _shop: {fileID: 1311268619}
   _wallet: {fileID: 1030979928}
-  _gameManager: {fileID: 1875710079}
   _buttonPrefab: {fileID: 3635012363401127766, guid: f87d5d34136775b41907fc1187ef4bc2, type: 3}
 --- !u!95 &1789632543
 Animator:

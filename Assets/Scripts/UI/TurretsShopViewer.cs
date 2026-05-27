@@ -7,7 +7,6 @@ public class TurretsShopViewer : MonoBehaviour
 {
     [SerializeField] private TurretsShop _shop;
     [SerializeField] private Wallet _wallet;
-    [SerializeField] private GameManager _gameManager;
     [SerializeField] private Button _buttonPrefab;
 
     private Animator _animator;
@@ -29,7 +28,7 @@ public class TurretsShopViewer : MonoBehaviour
                 icon.sprite = item.Icon;
             }
 
-            button.onClick.AddListener(() => _shop.SelectTurret(item));
+            button.onClick.AddListener(() => _shop.BuyTurret(item));
             _buttons.Add(button, item);
         }
     }
@@ -41,23 +40,31 @@ public class TurretsShopViewer : MonoBehaviour
 
     private void OnEnable()
     {
-        _gameManager.OnStateChanged += OnGameStateChanged;
         _wallet.OnMoneyChanged += OnMoneyChanged;
+        _shop.OnBlockSelected += OnBlockSelected;
+        _shop.OnBlockDeselected += OnBlockDeselected;
     }
 
     private void OnDisable()
     {
-        _gameManager.OnStateChanged -= OnGameStateChanged;
         _wallet.OnMoneyChanged -= OnMoneyChanged;
+        _shop.OnBlockSelected -= OnBlockSelected;
+        _shop.OnBlockDeselected -= OnBlockDeselected;
     }
 
-    private void OnGameStateChanged(GameManager.GameState state)
+    private void OnBlockSelected(BlockScript block)
     {
-        if (!_hidden || state != GameManager.GameState.BuildingTurrets)
+        if (!_hidden)
             return;
 
-        _animator.Play(_showAnimation);
+        _animator.CrossFade(_showAnimation, 0.1f);
         _hidden = false;
+    }
+
+    private void OnBlockDeselected()
+    {
+        _animator.CrossFade(_hideAnimation, 0.1f);
+        _hidden = true;
     }
 
     private void OnMoneyChanged(int money)
