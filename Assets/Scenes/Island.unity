@@ -4942,6 +4942,7 @@ MonoBehaviour:
   _sandPathBuildService: {fileID: 305503}
   _spawnDeathControl: {fileID: 694046010}
   _tower: {fileID: 1739395621}
+  _blockDetector: {fileID: 709556715}
 --- !u!1 &645921916
 GameObject:
   m_ObjectHideFlags: 0
@@ -13694,6 +13695,10 @@ MonoBehaviour:
   _shop: {fileID: 1311268619}
   _wallet: {fileID: 1030979928}
   _buttonPrefab: {fileID: 3635012363401127766, guid: f87d5d34136775b41907fc1187ef4bc2, type: 3}
+  _ignoreBlocks:
+  - {fileID: 1987853413}
+  - {fileID: 1569763699}
+  - {fileID: 1331592355}
 --- !u!95 &1789632543
 Animator:
   serializedVersion: 7
@@ -14015,7 +14020,6 @@ MonoBehaviour:
   _levels:
   - {fileID: 11400000, guid: db2c2aace91545d4d9deea106eef0f8b, type: 2}
   - {fileID: 11400000, guid: 16db44f3b18ae8344877ec2245286b7d, type: 2}
-  _pathBuildService: {fileID: 305503}
   _onStateChanged:
     m_PersistentCalls:
       m_Calls: []

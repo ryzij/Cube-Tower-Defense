@@ -8,6 +8,7 @@ public class TurretsShopViewer : MonoBehaviour
     [SerializeField] private TurretsShop _shop;
     [SerializeField] private Wallet _wallet;
     [SerializeField] private Button _buttonPrefab;
+    [SerializeField] private List<BlockScript> _ignoreBlocks;
 
     private Animator _animator;
     private bool _hidden = true;
@@ -54,6 +55,13 @@ public class TurretsShopViewer : MonoBehaviour
 
     private void OnBlockSelected(BlockScript block)
     {
+        // Чтобы анимация не воспроизводилась когда не надо
+        if (_ignoreBlocks.Contains(block))
+        {
+            _ignoreBlocks.Clear();
+            return;
+        }
+
         if (!_hidden)
             return;
 
