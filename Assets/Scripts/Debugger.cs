@@ -6,6 +6,9 @@ public class Debugger : MonoBehaviour
     [SerializeField] private SandPathBuildService _sandPathBuildService;
     [SerializeField] private SpawnDeathEnemyController _spawnDeathControl;
     [SerializeField] private Tower _tower;
+    [SerializeField] private BlockDetector _blockDetector;
+
+    private int _blockCount;
 
     private void OnEnable()
     {
@@ -13,6 +16,7 @@ public class Debugger : MonoBehaviour
         _sandPathBuildService.OnBuildComplete += OnBuildComplete;
         _spawnDeathControl.OnLastEnemyDestroyed += OnLastEnemyDestroyed;
         _tower.OnGameOver += OnGameOver;
+        _blockDetector.OnBlockClicked += OnBlockClicked;
     }
 
     private void OnDisable()
@@ -21,11 +25,15 @@ public class Debugger : MonoBehaviour
         _sandPathBuildService.OnBuildComplete -= OnBuildComplete;
         _spawnDeathControl.OnLastEnemyDestroyed -= OnLastEnemyDestroyed;
         _tower.OnGameOver -= OnGameOver;
+        _blockDetector.OnBlockClicked -= OnBlockClicked;
     }
 
-    private static void OnGameStateChanged(GameManager.GameState newState)
+    private void OnGameStateChanged(GameManager.GameState newState)
     {
         print("State changed, current state: " + newState);
+
+        if (newState == GameManager.GameState.BuildingTurrets)
+            print("Total blocks in path: " + _blockCount);
     }
 
     private static void OnBuildComplete()
@@ -33,13 +41,19 @@ public class Debugger : MonoBehaviour
         print("Build complete");
     }
 
-    private void OnLastEnemyDestroyed()
+    private static void OnLastEnemyDestroyed()
     {
         print("Last enemy destroyed");
     }
 
-    private void OnGameOver()
+    private static void OnGameOver()
     {
         print("Game over");
+    }
+
+    private void OnBlockClicked(BlockScript block)
+    {
+        if (_gameManager.CurrentState == GameManager.GameState.BuildingPath)
+            print("Block: " + ++_blockCount + " - " + block);
     }
 }
