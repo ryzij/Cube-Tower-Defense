@@ -55,15 +55,15 @@ public class TurretsShopViewer : MonoBehaviour
 
     private void OnBlockSelected(BlockScript block)
     {
+        if (!_hidden)
+            return;
+
         // Чтобы анимация не воспроизводилась когда не надо
-        if (_ignoreBlocks.Contains(block))
+        if (_ignoreBlocks.Count > 0 && _ignoreBlocks.Contains(block))
         {
             _ignoreBlocks.Clear();
             return;
         }
-
-        if (!_hidden)
-            return;
 
         _animator.CrossFade(_showAnimation, 0.1f);
         _hidden = false;
