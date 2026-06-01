@@ -10377,8 +10377,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockSelector
   _blockDetector: {fileID: 709556715}
-  _selectedMaterial: {fileID: 2100000, guid: 9e24435bdb83bfb43a73913d81fd3a3e, type: 2}
-  _isGrassOnly: 1
+  _selectedMaterials:
+  - Material: {fileID: 2100000, guid: 9e24435bdb83bfb43a73913d81fd3a3e, type: 2}
+    Type: 1
+  - Material: {fileID: 2100000, guid: 9e24435bdb83bfb43a73913d81fd3a3e, type: 2}
+    Type: 3
+  - Material: {fileID: 2100000, guid: 70740e8fb777f5a46a011d9e96773fde, type: 2}
+    Type: 2
 --- !u!1001 &1295925200
 PrefabInstance:
   m_ObjectHideFlags: 0
