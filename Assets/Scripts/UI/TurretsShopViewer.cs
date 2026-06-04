@@ -7,12 +7,12 @@ public class TurretsShopViewer : MonoBehaviour
 {
     [SerializeField] private TurretsShop _shop;
     [SerializeField] private Wallet _wallet;
-    [SerializeField] private Button _buttonPrefab;
+    [SerializeField] private TurretButton _buttonPrefab;
     [SerializeField] private List<BlockScript> _ignoreBlocks;
 
     private Animator _animator;
     private bool _hidden = true;
-    private readonly Dictionary<Button, TurretShopItem> _buttons = new();
+    private readonly List<TurretButton> _buttons = new();
 
     private static readonly int _hideAnimation = Animator.StringToHash("HideTurretShopPanelAnimation");
     private static readonly int _showAnimation = Animator.StringToHash("ShowTurretShopPanelAnimation");
@@ -22,15 +22,12 @@ public class TurretsShopViewer : MonoBehaviour
         foreach (var item in _shop.TurretShopItems)
         {
             var button = Instantiate(_buttonPrefab, transform);
-            var icon = button.GetComponentInChildrenWithoutParent<Image>();
-            if (icon != null && item.Icon != null)
-            {
-                icon.gameObject.SetActive(true);
-                icon.sprite = item.Icon;
-            }
+            button.TurretItem = item;
+            button.Icon = item.Icon;
+            button.PriceText = item.Price.ToString();
+            button.OnClick += () => _shop.BuyTurret(item);
 
-            button.onClick.AddListener(() => _shop.BuyTurret(item));
-            _buttons.Add(button, item);
+            _buttons.Add(button);
         }
     }
 
@@ -77,9 +74,7 @@ public class TurretsShopViewer : MonoBehaviour
 
     private void OnMoneyChanged(int money)
     {
-        foreach (var (button, item) in _buttons)
-        {
-            button.interactable = money >= item.Price;
-        }
+        foreach (var button in _buttons)
+            button.Interactable = money >= button.TurretItem.Price;
     }
 }

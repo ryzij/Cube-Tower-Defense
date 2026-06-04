@@ -13812,7 +13812,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 90, y: 90}
+  m_CellSize: {x: 70, y: 90}
   m_Spacing: {x: 10, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 1
@@ -13830,7 +13830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TurretsShopViewer
   _shop: {fileID: 1311268619}
   _wallet: {fileID: 1030979928}
-  _buttonPrefab: {fileID: 3635012363401127766, guid: f87d5d34136775b41907fc1187ef4bc2, type: 3}
+  _buttonPrefab: {fileID: -1733514171764333722, guid: f87d5d34136775b41907fc1187ef4bc2, type: 3}
   _ignoreBlocks:
   - {fileID: 1987853413}
   - {fileID: 1569763699}
