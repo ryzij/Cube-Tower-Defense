@@ -12,6 +12,7 @@ public class GameMenuButtons : MonoBehaviour
     private void OnEnable()
     {
         _gameManager.OnStateChanged += OnStateChanged;
+        _gameManager.OnLevelChanged += OnLevelChanged;
         _mainMenuButton.onClick.AddListener(ExitToMainMenu);
         
         if (_resetPathButton != null)
@@ -21,6 +22,7 @@ public class GameMenuButtons : MonoBehaviour
     private void OnDisable()
     {
         _gameManager.OnStateChanged -= OnStateChanged;
+        _gameManager.OnLevelChanged -= OnLevelChanged;
         _mainMenuButton.onClick.RemoveListener(ExitToMainMenu);
 
         if (_resetPathButton != null)
@@ -36,6 +38,11 @@ public class GameMenuButtons : MonoBehaviour
         _resetPathButton.onClick.RemoveAllListeners();
         Destroy(_resetPathButton.gameObject);
         _resetPathButton = null;
+    }
+
+    private void OnLevelChanged(GameManager.OnLevelChangedEventArgs args)
+    {
+        _nextLevelButton.interactable = !args.IsLastLevel;
     }
 
     private void OnResetButtonClick()
