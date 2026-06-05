@@ -91,11 +91,5 @@ public class SandPathBuildService : MonoBehaviour
     }
 
     public IEnumerable<Vector3> GetPath() =>
-        _blocksInPath.Select(b =>
-        {
-            var pos = b.transform.position;
-            pos.y += 1f;
-
-            return pos;
-        });
+        _blocksInPath.Select(b => b.transform.position + Vector3.up * 0.5f);
 }
