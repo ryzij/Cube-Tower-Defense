@@ -3,6 +3,9 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private Wallet _wallet;
+    [SerializeField] private GameManager _gameManager;
+    [SerializeField] private AudioSource _levelBackgroundMusic;
+    [SerializeField] private AudioSource _buildBackgroundMusic;
     [SerializeField] private AudioSource[] _grassBlockDestroySound;
     [SerializeField] private AudioSource[] _moneyChangeSound;
 
@@ -10,17 +13,21 @@ public class AudioManager : MonoBehaviour
     private int _moneyChangeSoundIndex = 0;
 
     private int _money;
+    private GameManager.GameState _state;
 
     private void OnEnable()
     {
         _money = _wallet.Money;
+        _state = _gameManager.CurrentState;
 
         _wallet.OnMoneyChanged += OnMoneyChanged;
+        _gameManager.OnStateChanged += OnStateChanged;
     }
 
     private void OnDisable()
     {
         _wallet.OnMoneyChanged -= OnMoneyChanged;
+        _gameManager.OnStateChanged -= OnStateChanged;
     }
 
     public void PlayBlockDestroySound(BlockScript block)
@@ -29,11 +36,7 @@ public class AudioManager : MonoBehaviour
         {
             case BlockScript.BlockType.Grass:
             case BlockScript.BlockType.PathFinish:
-                if (_grassBlockDestroySound == null)
-                    return;
-
-                _grassBlockDestroySound[_grassSoundIndex].Play();
-                _grassSoundIndex = (_grassSoundIndex + 1) % _grassBlockDestroySound.Length;
+                Play(_grassBlockDestroySound, ref _grassSoundIndex);
                 break;
         }
     }
@@ -46,7 +49,48 @@ public class AudioManager : MonoBehaviour
         if (_moneyChangeSound.Length == 0 || oldMoney <= money)
             return;
 
-        _moneyChangeSound[_moneyChangeSoundIndex].Play();
-        _moneyChangeSoundIndex = (_moneyChangeSoundIndex + 1) % _moneyChangeSound.Length;
+        Play(_moneyChangeSound, ref _moneyChangeSoundIndex);
+    }
+
+    private void OnStateChanged(GameManager.GameState newState)
+    {
+        if (newState == _state ||
+            _state == GameManager.GameState.BuildingPath && newState == GameManager.GameState.BuildingTurrets)
+            return;
+
+        _state = newState;
+        switch (newState)
+        {
+            case GameManager.GameState.Level:
+                Stop(_buildBackgroundMusic);
+                Play(_levelBackgroundMusic);
+                break;
+            case GameManager.GameState.BuildingPath:
+            case GameManager.GameState.BuildingTurrets:
+                Stop(_levelBackgroundMusic);
+                Play(_buildBackgroundMusic);
+                break;
+        }
+    }
+
+    private static void Play(AudioSource audioSource)
+    {
+        if (audioSource != null)
+            audioSource.Play();
+    }
+
+    private static void Play(AudioSource[] audioSources, ref int index)
+    {
+        if (audioSources == null || index >= audioSources.Length)
+            return;
+
+        Play(audioSources[index]);
+        index = (index + 1) % audioSources.Length;
+    }
+
+    private static void Stop(AudioSource audioSource)
+    {
+        if (audioSource != null && audioSource.isPlaying)
+            audioSource.Stop();
     }
 }
