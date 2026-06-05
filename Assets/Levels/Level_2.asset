@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Level
   _enemiesPrefabs:
   - {fileID: 5584936129478037181, guid: 51d15bcd7060d774c831ac3a7be8832b, type: 3}
-  - {fileID: 5584936129478037181, guid: 51d15bcd7060d774c831ac3a7be8832b, type: 3}
+  - {fileID: -2612771345143007336, guid: 00b286560eaefde47802ef4271efe745, type: 3}
   _levelTimeSec: 10
