@@ -15,7 +15,4 @@ MonoBehaviour:
   _enemiesPrefabs:
   - {fileID: 5584936129478037181, guid: 51d15bcd7060d774c831ac3a7be8832b, type: 3}
   - {fileID: 5584936129478037181, guid: 51d15bcd7060d774c831ac3a7be8832b, type: 3}
-  - {fileID: 5584936129478037181, guid: 51d15bcd7060d774c831ac3a7be8832b, type: 3}
-  - {fileID: 5584936129478037181, guid: 51d15bcd7060d774c831ac3a7be8832b, type: 3}
-  - {fileID: 5584936129478037181, guid: 51d15bcd7060d774c831ac3a7be8832b, type: 3}
   _levelTimeSec: 10
