@@ -94,6 +94,12 @@ public class Turret : MonoBehaviour
         _reloadTimer += Time.deltaTime;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out TurretBullet bullet) && bullet.From != this)
+            Destroy(bullet.gameObject);
+    }
+
     private void SpawnBullet(Vector3 direction)
     {
         if (_reloadTimer < _reloadTime || !DetectEnemy(direction))

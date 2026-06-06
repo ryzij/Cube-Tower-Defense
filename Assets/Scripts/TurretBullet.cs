@@ -8,6 +8,7 @@ public class TurretBullet : MonoBehaviour
 
     private Vector3 _spawnPos;
 
+    public Turret From { get; private set; }
     public float Damage => _damage;
     public float Distance => _distance;
     
@@ -28,6 +29,7 @@ public class TurretBullet : MonoBehaviour
         var rot = turret.transform.rotation;
         rot.SetLookRotation(direction);
         var bullet = Instantiate(this, spawnPoint, rot, turret.transform);
+        bullet.From = turret;
         bullet._damage += turret.Damage;
         bullet._distance += turret.Distance - Vector3.Distance(spawnPoint, bullet.transform.position);
 
