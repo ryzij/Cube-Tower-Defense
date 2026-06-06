@@ -10795,6 +10795,8 @@ MonoBehaviour:
     _icon: {fileID: 0}
   - _turretPrefab: {fileID: 5998178441856796381, guid: 0001e3e308686e544811a0faa40b942d, type: 3}
     _icon: {fileID: 0}
+  - _turretPrefab: {fileID: 4304661374479576110, guid: 4767c1d585e958d41bf7bf0c014d9d19, type: 3}
+    _icon: {fileID: 0}
   _onBlockSelected:
     m_PersistentCalls:
       m_Calls: []
