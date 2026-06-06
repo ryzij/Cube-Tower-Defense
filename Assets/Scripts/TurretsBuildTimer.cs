@@ -28,9 +28,6 @@ public class TurretsBuildTimer : MonoBehaviour
 
     private void OnStateChanged(GameManager.GameState newState)
     {
-        if (newState == GameManager.GameState.BuildingPath)
-            return;
-
         StopCoroutine(nameof(Timer));
         if (newState == GameManager.GameState.BuildingTurrets)
             StartCoroutine(nameof(Timer));
