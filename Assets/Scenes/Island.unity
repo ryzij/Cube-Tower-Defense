@@ -6051,6 +6051,7 @@ GameObject:
   - component: {fileID: 769732339}
   - component: {fileID: 769732338}
   - component: {fileID: 769732337}
+  - component: {fileID: 769732340}
   m_Layer: 0
   m_Name: StartLevelButton
   m_TagString: Untagged
@@ -6184,6 +6185,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769732335}
   m_CullTransparentMesh: 1
+--- !u!114 &769732340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769732335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f51f072b7c7e64b8fde0e36109e334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimerViewer
+  _timer: {fileID: 2072548928}
+  _gameManager: {fileID: 1875710079}
+  _btnText: {fileID: 1462583103}
 --- !u!1001 &778348370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15692,6 +15708,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TurretsBuildTimer
   _gameManager: {fileID: 1875710079}
   _buildTime: 10
+  _onTick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2096698926
 PrefabInstance:
   m_ObjectHideFlags: 0
