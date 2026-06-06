@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
     {
         BuildingPath,
         BuildingTurrets,
-        Level
+        Level,
+        Win,
+        Lose
     }
     
     [SerializeField] private Level[] _levels;

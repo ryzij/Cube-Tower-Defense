@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private AudioSource _levelBackgroundMusic;
     [SerializeField] private AudioSource _buildBackgroundMusic;
+    [SerializeField] private AudioSource _winMusic;
+    [SerializeField] private AudioSource _loseMusic;
     [SerializeField] private AudioSource[] _grassBlockDestroySound;
     [SerializeField] private AudioSource[] _moneyChangeSound;
 
@@ -69,6 +71,16 @@ public class AudioManager : MonoBehaviour
             case GameManager.GameState.BuildingTurrets:
                 Stop(_levelBackgroundMusic);
                 Play(_buildBackgroundMusic);
+                break;
+            case GameManager.GameState.Win:
+                Stop(_levelBackgroundMusic);
+                Stop(_buildBackgroundMusic);
+                Play(_winMusic);
+                break;
+            case GameManager.GameState.Lose:
+                Stop(_levelBackgroundMusic);
+                Stop(_buildBackgroundMusic);
+                Play(_loseMusic);
                 break;
         }
     }

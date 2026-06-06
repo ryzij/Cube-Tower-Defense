@@ -40,8 +40,11 @@ public class WinLoseController : MonoBehaviour
 
     private void OnLastEnemyDestroyed()
     {
-        if (_isLastLevel)
-            _onWin?.Invoke();
+        if (!_isLastLevel)
+            return;
+
+        _gameManager.CurrentState = GameManager.GameState.Win;
+        _onWin?.Invoke();
     }
 
     private void OnLevelChanged(GameManager.OnLevelChangedEventArgs args)
@@ -52,6 +55,7 @@ public class WinLoseController : MonoBehaviour
 
     private void OnDeath()
     {
+        _gameManager.CurrentState = GameManager.GameState.Lose;
         _onGameOver?.Invoke(new OnGameOverEventArgs(_currentLevel));
     }
 
