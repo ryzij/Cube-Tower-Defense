@@ -11915,6 +11915,9 @@ MonoBehaviour:
   _onBlockDeselected:
     m_PersistentCalls:
       m_Calls: []
+  _onTurretBought:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1311268620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12760,6 +12763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _wallet: {fileID: 1030979928}
   _gameManager: {fileID: 1875710079}
+  _shop: {fileID: 1311268619}
   _levelBackgroundMusic: {fileID: 1897118789}
   _buildBackgroundMusic: {fileID: 1417807937}
   _winMusic: {fileID: 0}

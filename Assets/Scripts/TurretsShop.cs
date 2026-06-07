@@ -13,6 +13,7 @@ public class TurretsShop : MonoBehaviour
     [SerializeField] private TurretShopItem[] _turretShopItems;
     [SerializeField] private UnityEvent<BlockScript> _onBlockSelected;
     [SerializeField] private UnityEvent _onBlockDeselected;
+    [SerializeField] private UnityEvent<TurretShopItem> _onTurretBought;
 
     public IReadOnlyCollection<TurretShopItem> TurretShopItems => _turretShopItems;
 
@@ -26,6 +27,12 @@ public class TurretsShop : MonoBehaviour
     {
         add => _onBlockDeselected.AddListener(value);
         remove => _onBlockDeselected.RemoveListener(value);
+    }
+
+    public event UnityAction<TurretShopItem> OnTurretBought
+    {
+        add => _onTurretBought.AddListener(value);
+        remove => _onTurretBought.RemoveListener(value);
     }
 
     private BlockScript _selectedBlock;
@@ -77,6 +84,7 @@ public class TurretsShop : MonoBehaviour
 
         _wallet.TakeMoney(item.Price);
         Instantiate(item.TurretPrefab, _selectedBlock.transform.position + Vector3.up, Quaternion.identity, _turretsHolder);
+        _onTurretBought?.Invoke(item);
         DeselectBlock();
     }
 

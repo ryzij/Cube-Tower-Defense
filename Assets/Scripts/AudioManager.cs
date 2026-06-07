@@ -4,6 +4,7 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private Wallet _wallet;
     [SerializeField] private GameManager _gameManager;
+    [SerializeField] private TurretsShop _shop;
     [SerializeField] private AudioSource _levelBackgroundMusic;
     [SerializeField] private AudioSource _buildBackgroundMusic;
     [SerializeField] private AudioSource _winMusic;
@@ -22,14 +23,16 @@ public class AudioManager : MonoBehaviour
         _money = _wallet.Money;
         _state = _gameManager.CurrentState;
 
-        _wallet.OnMoneyChanged += OnMoneyChanged;
+        //_wallet.OnMoneyChanged += OnMoneyChanged;
         _gameManager.OnStateChanged += OnStateChanged;
+        _shop.OnTurretBought += OnTurretBought;
     }
 
     private void OnDisable()
     {
-        _wallet.OnMoneyChanged -= OnMoneyChanged;
+        //_wallet.OnMoneyChanged -= OnMoneyChanged;
         _gameManager.OnStateChanged -= OnStateChanged;
+        _shop.OnTurretBought -= OnTurretBought;
     }
 
     public void PlayBlockDestroySound(BlockScript block)
@@ -43,16 +46,21 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void OnMoneyChanged(int money)
+    private void OnTurretBought(TurretShopItem _)
     {
-        var oldMoney = _money;
-        _money = money;
-
-        if (_moneyChangeSound.Length == 0 || oldMoney <= money)
-            return;
-
         Play(_moneyChangeSound, ref _moneyChangeSoundIndex);
     }
+
+    //private void OnMoneyChanged(int money)
+    //{
+    //    var oldMoney = _money;
+    //    _money = money;
+
+    //    if (_moneyChangeSound.Length == 0 || oldMoney <= money)
+    //        return;
+
+    //    Play(_moneyChangeSound, ref _moneyChangeSoundIndex);
+    //}
 
     private void OnStateChanged(GameManager.GameState newState)
     {
