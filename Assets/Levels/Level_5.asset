@@ -25,4 +25,4 @@ MonoBehaviour:
   - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
   - {fileID: 8494846020373296008, guid: cbc814ca6b730954b8a5e3641bde01c9, type: 3}
   - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
-  _levelTimeSec: 20
+  _levelTimeSec: 10

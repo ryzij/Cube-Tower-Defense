@@ -186,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 706eddb0321db5445bd04497ea72bd5c, type: 3}
       propertyPath: m_Name
-      value: TurretLvl2
+      value: TurretLvl1
       objectReference: {fileID: 0}
     - target: {fileID: 6317578925029434746, guid: 706eddb0321db5445bd04497ea72bd5c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -310,7 +310,7 @@ MonoBehaviour:
   _reloadTime: 1
   _damage: 0
   _distance: 0
-  _price: 100
+  _price: 150
   _sellingMultiplier: 0.5
   _upgrades:
   - {fileID: 11400000, guid: 68a1d6af410516a45b1a068a14506079, type: 2}

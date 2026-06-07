@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   _pathService: {fileID: 0}
-  _health: 4
+  _health: 5
   _speed: 2
   _damage: 1
   _killReward: 20

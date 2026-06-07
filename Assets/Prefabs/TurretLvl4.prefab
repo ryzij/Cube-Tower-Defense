@@ -86,7 +86,7 @@ MonoBehaviour:
   _reloadTime: 0.5
   _damage: 5
   _distance: 10
-  _price: 600
+  _price: 3000
   _sellingMultiplier: 0.5
   _upgrades: []
 --- !u!1001 &4875054775373587219
