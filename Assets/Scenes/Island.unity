@@ -7141,6 +7141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameMenuButtons
   _gameManager: {fileID: 1875710079}
   _sandPathBuildService: {fileID: 305503}
+  _wallet: {fileID: 1030979928}
   _mainMenuButton: {fileID: 512672405}
   _nextLevelButton: {fileID: 769732337}
   _resetPathButton: {fileID: 1026163394}
