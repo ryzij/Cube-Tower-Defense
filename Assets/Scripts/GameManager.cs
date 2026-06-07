@@ -37,6 +37,10 @@ public class GameManager : MonoBehaviour
         get => _currentState;
         set
         {
+            if (_currentState == GameState.Lose ||
+                _currentState == GameState.Win)
+                return;
+
             _currentState = value;
             _onStateChanged?.Invoke(value);
         }
