@@ -39,6 +39,8 @@ public class Enemy : MonoBehaviour
         get => _pathService;
         set => _pathService = value;
     }
+    
+    public int PathLenght => _path?.Count ?? -1;
 
     public float Health
     {

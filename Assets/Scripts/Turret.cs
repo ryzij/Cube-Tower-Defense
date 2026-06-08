@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Turret : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class Turret : MonoBehaviour
     private float _baseDistance;
 
     private float _currentPrice;
+
+    private readonly Dictionary<Vector3, Enemy> _enemiesInRange = new();
 
     public int Price => _price;
     public float Damage => _damage;
@@ -86,10 +89,14 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
-        SpawnBullet(Vector3.forward);
-        SpawnBullet(Vector3.back);
-        SpawnBullet(Vector3.left);
-        SpawnBullet(Vector3.right);
+        // SpawnBullet(Vector3.forward);
+        // SpawnBullet(Vector3.back);
+        // SpawnBullet(Vector3.left);
+        // SpawnBullet(Vector3.right);
+
+        var direction = GetMinPathEnemyDirection();
+        if (direction != Vector3.zero)
+            SpawnBullet(direction);
 
         _reloadTimer += Time.deltaTime;
     }
@@ -102,14 +109,50 @@ public class Turret : MonoBehaviour
 
     private void SpawnBullet(Vector3 direction)
     {
-        if (_reloadTimer < _reloadTime || !DetectEnemy(direction))
+        if (_reloadTimer < _reloadTime/* || !DetectEnemy(direction)*/)
             return;
 
         _bulletPrefab.Spawn(this, _bulletSpawnPoint.position, direction);
         _reloadTimer = 0f;
     }
 
-    private bool DetectEnemy(Vector3 direction) =>
-        Physics.Raycast(transform.position, direction, out var hit, _bulletPrefab.Distance + _distance) &&
-        hit.transform.TryGetComponent(out Enemy _);
+    // private bool DetectEnemy(Vector3 direction) =>
+    //     Physics.Raycast(transform.position, direction, out var hit, _bulletPrefab.Distance + _distance) &&
+    //     hit.transform.TryGetComponent(out Enemy _);
+
+    private Enemy DetectEnemy(Vector3 direction)
+    {
+        if (Physics.Raycast(transform.position, direction, out var hit, _bulletPrefab.Distance + _distance) &&
+            hit.transform.TryGetComponent(out Enemy enemy))
+            return enemy;
+
+        return null;
+    }
+
+    private Vector3 GetMinPathEnemyDirection()
+    {
+        _enemiesInRange[Vector3.forward] = DetectEnemy(Vector3.forward);
+        _enemiesInRange[Vector3.back] = DetectEnemy(Vector3.back);
+        _enemiesInRange[Vector3.left] = DetectEnemy(Vector3.left);
+        _enemiesInRange[Vector3.right] = DetectEnemy(Vector3.right);
+
+        Vector3 direction = Vector3.zero;
+        Enemy minPathEnemy = null;
+        foreach (var (dir, enemy) in _enemiesInRange)
+        {
+            if (enemy == null)
+                continue;
+            
+            if (minPathEnemy == null || enemy.PathLenght < minPathEnemy.PathLenght)
+            {
+                direction = dir;
+                minPathEnemy = enemy;
+            }
+        }
+
+        if (minPathEnemy == null)
+            return Vector3.zero;
+
+        return direction;
+    }
 }
