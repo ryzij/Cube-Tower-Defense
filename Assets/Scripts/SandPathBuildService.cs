@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
 using System.Collections.Generic;
+using System.Collections;
 
 public class SandPathBuildService : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class SandPathBuildService : MonoBehaviour
     [SerializeField] private BlockScript _grassBlockPrefab;
     [SerializeField] private BlockScript _pathStart;
     [SerializeField] private BlockScript _pathEnd;
+    [SerializeField] private float _resetBlockTime = 0.5f;
     [SerializeField] private BlockScript[] _pathFinish;
     [SerializeField] private BlockScript[] _predefinedBlocks;
 
@@ -30,6 +32,8 @@ public class SandPathBuildService : MonoBehaviour
 
     private BlockScript _currentBlock;
     private readonly List<BlockScript> _blocksInPath = new();
+
+    private bool _canBuild = true;
 
     private void Start() => InitBlocks();
 
@@ -54,18 +58,7 @@ public class SandPathBuildService : MonoBehaviour
         _blockDetector.OnBlockClicked -= OnBlockDetected;
     }
 
-    public void ResetPath()
-    {
-        for (int i = _predefinedBlocks.Length; i < _blocksInPath.Count; i++)
-        {
-            var block = _blocksInPath[i];
-            Instantiate(_grassBlockPrefab, block.transform.position, block.transform.localRotation, block.transform.parent);
-            DestroyBlock(block);
-        }
-
-        _blocksInPath.Clear();
-        InitBlocks();
-    }
+    public void ResetPath() => StartCoroutine(ResetPathCoroutine());
 
     public void ResetLastBlock()
     {
@@ -82,9 +75,23 @@ public class SandPathBuildService : MonoBehaviour
         _currentBlock = _blocksInPath.LastOrDefault();
     }
 
+    private IEnumerator ResetPathCoroutine()
+    {
+        _canBuild = false;
+        var wait = new WaitForSeconds(_resetBlockTime);
+
+        while (_blocksInPath.Count > _predefinedBlocks.Length)
+        {
+            yield return wait;
+            ResetLastBlock();
+        }
+
+        _canBuild = true;
+    }
+
     private void OnBlockDetected(BlockScript block)
     {
-        if (_gameManager.CurrentState != GameManager.GameState.BuildingPath)
+        if (_gameManager.CurrentState != GameManager.GameState.BuildingPath || !_canBuild)
             return;
         if (block == _currentBlock)
         {

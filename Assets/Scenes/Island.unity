@@ -170,6 +170,7 @@ MonoBehaviour:
   _grassBlockPrefab: {fileID: 1673662010218982673, guid: 8dd20c91f0d7a7b419f6bedcd1870cba, type: 3}
   _pathStart: {fileID: 1415278839}
   _pathEnd: {fileID: 761061820}
+  _resetBlockTime: 0.03
   _pathFinish:
   - {fileID: 1987853413}
   - {fileID: 1569763699}
@@ -7536,7 +7537,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameMenuButtons
   _gameManager: {fileID: 1875710079}
   _sandPathBuildService: {fileID: 305503}
-  _wallet: {fileID: 1030979928}
   _mainMenuButton: {fileID: 512672405}
   _nextLevelButton: {fileID: 769732337}
   _resetPathButton: {fileID: 1026163394}
