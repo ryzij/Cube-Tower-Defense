@@ -5,7 +5,6 @@ public class GameMenuButtons : MonoBehaviour
 {
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private SandPathBuildService _sandPathBuildService;
-    [SerializeField] private Wallet _wallet;
     [SerializeField] private Button _mainMenuButton;
     [SerializeField] private Button _nextLevelButton;
     [SerializeField] private Button _resetPathButton;
@@ -49,7 +48,6 @@ public class GameMenuButtons : MonoBehaviour
     private void OnResetButtonClick()
     {
         _sandPathBuildService.ResetPath();
-        _wallet.TakeMoney(_wallet.Money);
         _gameManager.CurrentState = GameManager.GameState.BuildingPath;
     }
 

@@ -60,17 +60,37 @@ public class SandPathBuildService : MonoBehaviour
         {
             var block = _blocksInPath[i];
             Instantiate(_grassBlockPrefab, block.transform.position, block.transform.localRotation, block.transform.parent);
-            Destroy(block.gameObject);
+            DestroyBlock(block);
         }
 
         _blocksInPath.Clear();
         InitBlocks();
     }
 
+    public void ResetLastBlock()
+    {
+        if (_predefinedBlocks.Contains(_currentBlock))
+            return;
+
+        _blocksInPath.Remove(_currentBlock);
+        Instantiate(_grassBlockPrefab,
+            _currentBlock.transform.position,
+            _currentBlock.transform.localRotation,
+            _currentBlock.transform.parent);
+        DestroyBlock(_currentBlock);
+
+        _currentBlock = _blocksInPath.LastOrDefault();
+    }
+
     private void OnBlockDetected(BlockScript block)
     {
         if (_gameManager.CurrentState != GameManager.GameState.BuildingPath)
             return;
+        if (block == _currentBlock)
+        {
+            ResetLastBlock();
+            return;
+        }
         if (!block.CompareTag("GrassBlock") ||
             !_currentBlock.GetNeighbors().Contains(block) ||
             block.GetNeighbors().Count((o) => o.Type == BlockScript.BlockType.Sand) > 1)

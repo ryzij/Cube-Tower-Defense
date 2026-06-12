@@ -16,8 +16,11 @@ public class BlockDestoyReward : MonoBehaviour
         _sandPathBuildService.OnBlockDestroy -= OnBlockDestroy;
     }
 
-    private void OnBlockDestroy(BlockScript _)
+    private void OnBlockDestroy(BlockScript block)
     {
-        _wallet.AddMoney(_reward);
+        if (block.Type == BlockScript.BlockType.Grass)
+            _wallet.AddMoney(_reward);
+        else if (block.Type == BlockScript.BlockType.Sand)
+            _wallet.TakeMoney(_reward);
     }
 }
