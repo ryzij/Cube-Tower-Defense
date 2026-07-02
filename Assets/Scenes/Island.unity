@@ -171,6 +171,7 @@ MonoBehaviour:
   _pathStart: {fileID: 1415278839}
   _pathEnd: {fileID: 761061820}
   _resetBlockTime: 0.03
+  _destroyBlockDelay: 0.5
   _pathFinish:
   - {fileID: 1987853413}
   - {fileID: 1569763699}

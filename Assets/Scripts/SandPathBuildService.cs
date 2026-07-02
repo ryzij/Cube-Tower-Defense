@@ -13,11 +13,14 @@ public class SandPathBuildService : MonoBehaviour
     [SerializeField] private BlockScript _pathStart;
     [SerializeField] private BlockScript _pathEnd;
     [SerializeField] private float _resetBlockTime = 0.5f;
+    [SerializeField] private float _destroyBlockDelay = 1f;
     [SerializeField] private BlockScript[] _pathFinish;
     [SerializeField] private BlockScript[] _predefinedBlocks;
 
     [SerializeField] private UnityEvent<BlockScript> _onBlockDestroy;
     [SerializeField] private UnityEvent _onBuildComplete;
+
+    private float _spawnBlockTime;
 
     public event UnityAction<BlockScript> OnBlockDestroy
     {
@@ -95,7 +98,8 @@ public class SandPathBuildService : MonoBehaviour
             return;
         if (block == _currentBlock)
         {
-            ResetLastBlock();
+            if (Time.time - _spawnBlockTime >= _destroyBlockDelay)
+                ResetLastBlock();
             return;
         }
         if (!block.CompareTag("GrassBlock") ||
@@ -106,6 +110,7 @@ public class SandPathBuildService : MonoBehaviour
         var t = block.transform;
         _currentBlock = Instantiate(_blockPrefab, t.position, t.localRotation, t.parent);
         _blocksInPath.Add(_currentBlock);
+        _spawnBlockTime = Time.time;
         if (_pathFinish.Contains(block))
         {
             _currentBlock = _pathEnd;
