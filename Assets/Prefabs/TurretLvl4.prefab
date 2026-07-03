@@ -84,11 +84,14 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 3199560406164022749, guid: 0576c410c743fc7419dbec9572ad95b2, type: 3}
   _bulletSpawnPoint: {fileID: 0}
   _reloadTime: 0.5
-  _damage: 5
-  _distance: 10
-  _price: 3000
+  _damage: 2
+  _distance: 2
+  _price: 200
   _sellingMultiplier: 0.5
-  _upgrades: []
+  _upgrades:
+  - {fileID: 11400000, guid: 68a1d6af410516a45b1a068a14506079, type: 2}
+  - {fileID: 11400000, guid: 796a3264078b8e844b8bae5672ed08ae, type: 2}
+  - {fileID: 11400000, guid: cc5e39ac57e1c14429e9292b640829e6, type: 2}
 --- !u!1001 &4875054775373587219
 PrefabInstance:
   m_ObjectHideFlags: 0
