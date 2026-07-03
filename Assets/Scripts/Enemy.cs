@@ -34,11 +34,11 @@ public class Enemy : MonoBehaviour
         remove => _onDestroyed.RemoveListener(value);
     }
 
-    public SandPathBuildService PathBuildService
-    {
-        get => _pathService;
-        set => _pathService = value;
-    }
+    //public SandPathBuildService PathBuildService
+    //{
+    //    get => _pathService;
+    //    set => _pathService = value;
+    //}
     
     public int PathLenght => _path?.Count ?? -1;
 
@@ -53,6 +53,17 @@ public class Enemy : MonoBehaviour
     }
 
     public float Damage { get => _damage; set => _damage = value; }
+
+    public Enemy Spawn(float healthMultiplier, float speedMultiplier, float damageMultiplier, SandPathBuildService pathBuildService, Transform spawnPoint, Transform parent)
+    {
+        var enemy = Instantiate(this, spawnPoint.position, spawnPoint.rotation, parent);
+        enemy.Health = _health * healthMultiplier;
+        enemy._speed = _speed * speedMultiplier;
+        enemy.Damage = _damage * damageMultiplier;
+        enemy._pathService = pathBuildService;
+
+        return enemy;
+    }
 
     private void Start()
     {

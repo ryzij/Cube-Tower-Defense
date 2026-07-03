@@ -43,8 +43,13 @@ public class EnemySpawner : MonoBehaviour
 
         foreach (var prefab in level.EnemiesPrefabs)
         {
-            var enemy = Instantiate(prefab, _spawnPoint.position, _spawnPoint.rotation, _enemyHolder);
-            enemy.PathBuildService = _pathBuildService;
+            var enemy = prefab.Spawn(
+                level.EnemiesHealthMultiplier,
+                level.EnemiesSpeedMultiplier,
+                level.EnemiesDamagingMultiplier,
+                _pathBuildService,
+                _spawnPoint,
+                _enemyHolder);
             _onEnemySpawned?.Invoke(enemy);
 
             yield return wait;
