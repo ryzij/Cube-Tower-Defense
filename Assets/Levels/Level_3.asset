@@ -13,17 +13,13 @@ MonoBehaviour:
   m_Name: Level_3
   m_EditorClassIdentifier: Assembly-CSharp::Level
   _enemiesPrefabs:
-  - {fileID: -2612771345143007336, guid: 00b286560eaefde47802ef4271efe745, type: 3}
-  - {fileID: -2612771345143007336, guid: 00b286560eaefde47802ef4271efe745, type: 3}
-  - {fileID: 5491815061389106469, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
-  - {fileID: -2612771345143007336, guid: 00b286560eaefde47802ef4271efe745, type: 3}
-  - {fileID: -2612771345143007336, guid: 00b286560eaefde47802ef4271efe745, type: 3}
-  - {fileID: -2612771345143007336, guid: 00b286560eaefde47802ef4271efe745, type: 3}
-  - {fileID: 5491815061389106469, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
-  - {fileID: -2612771345143007336, guid: 00b286560eaefde47802ef4271efe745, type: 3}
-  - {fileID: -2612771345143007336, guid: 00b286560eaefde47802ef4271efe745, type: 3}
-  - {fileID: -2612771345143007336, guid: 00b286560eaefde47802ef4271efe745, type: 3}
-  - {fileID: -2612771345143007336, guid: 00b286560eaefde47802ef4271efe745, type: 3}
-  - {fileID: -2612771345143007336, guid: 00b286560eaefde47802ef4271efe745, type: 3}
-  - {fileID: 5491815061389106469, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
-  _levelTimeSec: 30
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
+  - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
+  - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
+  - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
+  _levelTimeSec: 10
+  _enemiesHealthMultiplier: 0.2
+  _enemiesSpeedMultiplier: 1
+  _enemiesDamagingMultiplier: 1

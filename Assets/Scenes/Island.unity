@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BlockDestoyReward
   _sandPathBuildService: {fileID: 305503}
   _wallet: {fileID: 1030979928}
-  _reward: 10
+  _reward: 5
 --- !u!1001 &1336153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4429,13 +4429,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1875710078}
+  - {fileID: 1311268618}
   - {fileID: 1431145624}
   - {fileID: 305502}
-  - {fileID: 1875710078}
   - {fileID: 694046009}
   - {fileID: 1030979927}
   - {fileID: 632108690}
-  - {fileID: 1311268618}
   - {fileID: 1282261902}
   - {fileID: 709556714}
   - {fileID: 884308128}
@@ -9761,7 +9761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1047497975
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16621,11 +16621,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: db2c2aace91545d4d9deea106eef0f8b, type: 2}
   - {fileID: 11400000, guid: 16db44f3b18ae8344877ec2245286b7d, type: 2}
   - {fileID: 11400000, guid: fbf1b525a0564d24583e99177cc24f0f, type: 2}
-  - {fileID: 11400000, guid: 53e6a01cd7baab74b9b35b281375a4fa, type: 2}
-  - {fileID: 11400000, guid: a2dcf2857f1630c4693df502b5512e5e, type: 2}
-  - {fileID: 11400000, guid: c173804673a71f5419178d9a9aee863a, type: 2}
-  - {fileID: 11400000, guid: 587717a26b6146d48923fbd75f99c7b3, type: 2}
-  - {fileID: 11400000, guid: 738165dfa6bfd2042b6a89df5d431668, type: 2}
   _onStateChanged:
     m_PersistentCalls:
       m_Calls: []
