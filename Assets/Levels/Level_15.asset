@@ -38,7 +38,7 @@ MonoBehaviour:
   - {fileID: 5771359477185987911, guid: 5294b7df6241e864880aeb8132767c17, type: 3}
   - {fileID: 5771359477185987911, guid: 5294b7df6241e864880aeb8132767c17, type: 3}
   - {fileID: 5771359477185987911, guid: 5294b7df6241e864880aeb8132767c17, type: 3}
-  _levelTimeSec: 20
+  _levelTimeSec: 30
   _enemiesHealthMultiplier: 1
   _enemiesSpeedMultiplier: 1.1
   _enemiesDamagingMultiplier: 1
