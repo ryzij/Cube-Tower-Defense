@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private SandPathBuildService _pathBuildService;
     [SerializeField] private Transform _enemyHolder;
     [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private Enemy[] _enemiesPrefabs;
     [SerializeField] private UnityEvent<Enemy> _onEnemySpawned;
 
     public event UnityAction<Enemy> OnEnemySpawned
@@ -43,7 +44,11 @@ public class EnemySpawner : MonoBehaviour
 
         foreach (var prefab in level.EnemiesPrefabs)
         {
-            var enemy = prefab.Spawn(
+            var p = prefab;
+            if (prefab == null)
+                p = _enemiesPrefabs[Random.Range(0, _enemiesPrefabs.Length)];
+
+            var enemy = p.Spawn(
                 level.EnemiesHealthMultiplier,
                 level.EnemiesSpeedMultiplier,
                 level.EnemiesDamagingMultiplier,

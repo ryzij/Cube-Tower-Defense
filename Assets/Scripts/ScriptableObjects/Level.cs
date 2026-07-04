@@ -4,6 +4,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "Level_No", menuName = "Scriptable Objects/Level")]
 public class Level : ScriptableObject
 {
+    [Tooltip("Если элемент не задан, будет выбран случайный из списка префабов спавнера")]
     [SerializeField] private Enemy[] _enemiesPrefabs;
     [SerializeField] private float _levelTimeSec = 10f;
     [SerializeField] private float _enemiesHealthMultiplier = 1;
