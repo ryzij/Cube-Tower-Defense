@@ -10,20 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1e1b282bef2878e089a42b9c8507311, type: 3}
-  m_Name: Level_3
+  m_Name: Level_5
   m_EditorClassIdentifier: Assembly-CSharp::Level
   _enemiesPrefabs:
   - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
-  - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
   - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
   - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
-  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
   - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
-  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
   - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
-  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
   - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
-  _levelTimeSec: 7
+  _levelTimeSec: 15
   _enemiesHealthMultiplier: 0.5
   _enemiesSpeedMultiplier: 1
   _enemiesDamagingMultiplier: 1

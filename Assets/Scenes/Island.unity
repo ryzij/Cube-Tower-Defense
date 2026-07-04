@@ -6001,6 +6001,13 @@ MonoBehaviour:
   _pathBuildService: {fileID: 305503}
   _enemyHolder: {fileID: 180146475}
   _spawnPoint: {fileID: 0}
+  _enemiesPrefabs:
+  - {fileID: -2612771345143007336, guid: 00b286560eaefde47802ef4271efe745, type: 3}
+  - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
+  - {fileID: -7607986796579854595, guid: ab4059f525d7caf4f875c1b5debf9360, type: 3}
+  - {fileID: 5771359477185987911, guid: 5294b7df6241e864880aeb8132767c17, type: 3}
+  - {fileID: 8494846020373296008, guid: cbc814ca6b730954b8a5e3641bde01c9, type: 3}
+  - {fileID: 5491815061389106469, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
   _onEnemySpawned:
     m_PersistentCalls:
       m_Calls: []
@@ -16621,6 +16628,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: db2c2aace91545d4d9deea106eef0f8b, type: 2}
   - {fileID: 11400000, guid: 16db44f3b18ae8344877ec2245286b7d, type: 2}
   - {fileID: 11400000, guid: fbf1b525a0564d24583e99177cc24f0f, type: 2}
+  - {fileID: 11400000, guid: 53e6a01cd7baab74b9b35b281375a4fa, type: 2}
+  - {fileID: 11400000, guid: a2dcf2857f1630c4693df502b5512e5e, type: 2}
+  - {fileID: 11400000, guid: c173804673a71f5419178d9a9aee863a, type: 2}
+  - {fileID: 11400000, guid: c2f04f436891cc9419e81e6e5f59dfaa, type: 2}
+  - {fileID: 11400000, guid: f4de892aaf1586d48972e36a9f7b4c62, type: 2}
+  - {fileID: 11400000, guid: f97d8e3d00f50d248867be36ad0e6f89, type: 2}
+  - {fileID: 11400000, guid: f58c670a2e11b1842a1b26ab2e53bad5, type: 2}
+  - {fileID: 11400000, guid: d846f215866d21d40b6c35aace079572, type: 2}
+  - {fileID: 11400000, guid: 72eee667bc6f6394e9c5420380bd821b, type: 2}
+  - {fileID: 11400000, guid: 3f62e5475447afd498b94cf645c17031, type: 2}
+  - {fileID: 11400000, guid: a5f6e779747e690459cf896ddf8f26a7, type: 2}
+  - {fileID: 11400000, guid: fb9ef95973370da4b97f4c6c4369a806, type: 2}
+  - {fileID: 11400000, guid: 42dfc2dafe32ad5498ceae04d767808b, type: 2}
+  - {fileID: 11400000, guid: b7575e0c3c101bc4e856d264f4ba0707, type: 2}
+  - {fileID: 11400000, guid: f0e5739107952c94da05bdbe36ebf2bc, type: 2}
+  - {fileID: 11400000, guid: d40898477b099de43969ddf1f88223d9, type: 2}
+  - {fileID: 11400000, guid: b9c7732b7e4aa29458f61b0007345354, type: 2}
   _onStateChanged:
     m_PersistentCalls:
       m_Calls: []
