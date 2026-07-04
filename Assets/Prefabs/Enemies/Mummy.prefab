@@ -111,7 +111,7 @@ MonoBehaviour:
   _health: 7
   _speed: 1
   _damage: 1
-  _killReward: 15
+  _killReward: 20
   _onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
