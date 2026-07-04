@@ -108,10 +108,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   _pathService: {fileID: 0}
-  _health: 7
+  _health: 10
   _speed: 1
   _damage: 1
-  _killReward: 20
+  _killReward: 15
   _onHealthChanged:
     m_PersistentCalls:
       m_Calls: []

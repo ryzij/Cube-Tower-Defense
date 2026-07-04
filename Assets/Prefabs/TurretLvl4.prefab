@@ -83,10 +83,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Turret
   _bulletPrefab: {fileID: 3199560406164022749, guid: 0576c410c743fc7419dbec9572ad95b2, type: 3}
   _bulletSpawnPoint: {fileID: 0}
-  _reloadTime: 0.5
+  _reloadTime: 0.75
   _damage: 2
   _distance: 2
-  _price: 200
+  _price: 500
   _sellingMultiplier: 0.5
   _upgrades:
   - {fileID: 11400000, guid: 68a1d6af410516a45b1a068a14506079, type: 2}

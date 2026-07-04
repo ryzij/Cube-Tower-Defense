@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TurretUpgrade
   _upgradeCostMultiplier: 4
   _bulletPrefab: {fileID: 0}
-  _upgradeDamageMultiplier: 2
-  _upgradeDistanceMultiplier: 2
+  _upgradeDamageMultiplier: 1.75
+  _upgradeDistanceMultiplier: 1.75
   _upgradeReloadTimeMultiplier: 0.5

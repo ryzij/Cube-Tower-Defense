@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2630910966893525057, guid: 73dab2e2f6b94fed1bca337e79ee22f4, type: 3}
       propertyPath: _distance
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4072935564731715520, guid: 73dab2e2f6b94fed1bca337e79ee22f4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

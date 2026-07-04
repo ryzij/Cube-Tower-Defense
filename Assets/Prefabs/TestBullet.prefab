@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TurretBullet
   _damage: 1
   _speed: 6.33
-  _distance: 3
+  _distance: 2
 --- !u!65 &827913150929100519
 BoxCollider:
   m_ObjectHideFlags: 0
