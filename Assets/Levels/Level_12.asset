@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e1b282bef2878e089a42b9c8507311, type: 3}
   m_Name: Level_12
   m_EditorClassIdentifier: Assembly-CSharp::Level
+  _shuffle: 0
   _enemiesPrefabs:
   - {fileID: 5491815061389106469, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
   - {fileID: 5491815061389106469, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
@@ -30,5 +31,5 @@ MonoBehaviour:
   - {fileID: 5491815061389106469, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
   _levelTimeSec: 15
   _enemiesHealthMultiplier: 1
-  _enemiesSpeedMultiplier: 1
+  _enemiesSpeedMultiplier: 1.4
   _enemiesDamagingMultiplier: 1

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e1b282bef2878e089a42b9c8507311, type: 3}
   m_Name: Level_4
   m_EditorClassIdentifier: Assembly-CSharp::Level
+  _shuffle: 0
   _enemiesPrefabs:
   - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
   - {fileID: 3249491480063261959, guid: dcc982307a817354fafb192abcd9b917, type: 3}
